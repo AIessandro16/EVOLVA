@@ -1,72 +1,57 @@
-// ===============================
-// MENÚ MOBILE
-// ===============================
+// =====================================================
+// MOBILE MENU
+// =====================================================
 
 const menuToggle = document.querySelector(".menu-toggle");
-const nav = document.querySelector(".nav");
+const navMenu = document.querySelector(".nav-menu");
 
-if (menuToggle && nav) {
+if (menuToggle && navMenu) {
 
     menuToggle.addEventListener("click", () => {
-
-        nav.classList.toggle("open");
-
+        navMenu.classList.toggle("active");
     });
 
 
-    nav.querySelectorAll("a").forEach(link => {
+    // Cerrar menú al seleccionar una sección
+
+    const navLinks = document.querySelectorAll(".nav-menu a");
+
+    navLinks.forEach((link) => {
 
         link.addEventListener("click", () => {
-
-            nav.classList.remove("open");
-
+            navMenu.classList.remove("active");
         });
 
     });
-
 }
 
 
+// =====================================================
+// CONTACT FORM
+// =====================================================
 
-// ===============================
-// FORMULARIO
-// ===============================
+const contactForm = document.querySelector("#contactForm");
+const formMessage = document.querySelector("#formMessage");
 
-const form = document.querySelector("#contactForm");
-const message = document.querySelector("#formMessage");
+if (contactForm) {
 
-
-if (form && message) {
-
-    form.addEventListener("submit", (event) => {
+    contactForm.addEventListener("submit", (event) => {
 
         event.preventDefault();
 
+        if (!contactForm.checkValidity()) {
 
-        if (!form.checkValidity()) {
-
-            message.textContent =
-                "Revisa los campos antes de enviar.";
-
-            message.style.color =
-                "#ff8b8b";
-
-            form.reportValidity();
+            contactForm.reportValidity();
 
             return;
-
         }
 
 
-        message.textContent =
+        formMessage.textContent =
             "¡Solicitud preparada! El envío real se conectará más adelante.";
 
 
-        message.style.color =
-            "#b8ff57";
-
-
-        form.reset();
+        contactForm.reset();
 
     });
 
