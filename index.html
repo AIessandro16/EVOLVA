@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ASCEND — Eleva tu marca</title>
+    <title>EVOLVA — Digitalizamos negocios</title>
 
     <meta
         name="description"
-        content="ASCEND — Marketing estratégico para marcas que quieren crecer."
+        content="EVOLVA ayuda a negocios y emprendimientos a evolucionar digitalmente."
     >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
@@ -24,906 +24,1185 @@
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+<!-- =========================
+     INTRO / LOADING
+========================= -->
 
-    <header class="navbar">
-        <div class="container nav-container">
+<div id="loadingScreen">
 
-            <a href="#" class="logo">
-                <span class="logo-symbol">▲</span>
-                <span>ASCEND</span>
+    <div class="loading-content">
+
+        <div class="loading-logo">
+            EVOLVA<span>_</span>
+        </div>
+
+        <p>INITIALIZING DIGITAL EVOLUTION...</p>
+
+        <div class="loading-bar">
+            <span id="loadingProgress"></span>
+        </div>
+
+        <small id="loadingPercent">0%</small>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <a href="#inicio" class="logo">
+        EVOLVA<span>_</span>
+    </a>
+
+    <nav id="navigation">
+
+        <a href="#servicios">Servicios</a>
+        <a href="#diagnostico">Diagnóstico</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#evolucion">Evolución</a>
+        <a href="#faq">FAQ</a>
+
+    </nav>
+
+    <div class="header-actions">
+
+        <button
+            id="themeToggle"
+            class="theme-button"
+            aria-label="Cambiar tema"
+        >
+            ☼
+        </button>
+
+        <a href="#contacto" class="header-button">
+            Hablemos ↗
+        </a>
+
+        <button id="menuButton" class="menu-button">
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main>
+
+<section id="inicio" class="hero">
+
+    <div class="hero-grid"></div>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            <span></span>
+            DIGITALIZACIÓN / MARKETING
+        </div>
+
+        <h1>
+
+            Digitalizamos
+            <strong>negocios.</strong>
+
+            <br>
+
+            Evolucionamos
+            <strong>marcas.</strong>
+
+        </h1>
+
+        <p>
+
+            Ayudamos a emprendimientos y negocios a dejar atrás
+            una presencia digital improvisada y construir una marca
+            preparada para crecer.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#diagnostico" class="button primary">
+                Descubre qué necesitas →
             </a>
 
-            <button class="menu-toggle" aria-label="Abrir menú">
-                ☰
-            </button>
-
-            <nav class="nav-menu">
-                <a href="#servicios">Servicios</a>
-                <a href="#proceso">Proceso</a>
-                <a href="#catalogo">Catálogo</a>
-                <a href="#intelligence">Ascend AI</a>
-                <a href="#contacto">Hablemos</a>
-            </nav>
+            <a href="#servicios" class="button secondary">
+                Ver servicios
+            </a>
 
         </div>
-    </header>
 
+    </div>
 
-    <!-- ================= HERO ================= -->
 
-    <main>
+    <!-- ARCADE ART -->
 
-        <section class="hero">
-            <div class="container hero-grid">
+    <div class="hero-art">
 
-                <div class="hero-content">
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
 
-                    <span class="eyebrow">
-                        DIGITAL MARKETING / LEVEL UP
-                    </span>
+        <div class="pixel-sun"></div>
 
-                    <h1>
-                        ELEVA TU MARCA.
-                        <span>ASCIENDE</span>
-                        CON NOSOTROS.
-                    </h1>
+        <div class="mountain mountain-back"></div>
+        <div class="mountain mountain-front"></div>
 
-                    <p class="hero-description">
-                        Somos el equipo de marketing estratégico que tu empresa
-                        necesita para dejar de improvisar.
-                    </p>
+        <div class="flag">
+            E
+        </div>
 
-                    <div class="hero-buttons">
-                        <a href="#catalogo" class="btn btn-primary">
-                            VER CATÁLOGO ↑
-                        </a>
+        <div class="floating-card card-1">
 
-                        <a href="#contacto" class="btn btn-secondary">
-                            HABLEMOS
-                        </a>
-                    </div>
+            <small>EVOLUTION</small>
 
-                    <div class="hero-meta">
-                        <div>
-                            <strong>01</strong>
-                            <span>ESTRATEGIA</span>
-                        </div>
+            <strong>+01</strong>
 
-                        <div>
-                            <strong>02</strong>
-                            <span>CREATIVIDAD</span>
-                        </div>
+        </div>
 
-                        <div>
-                            <strong>03</strong>
-                            <span>CRECIMIENTO</span>
-                        </div>
-                    </div>
+        <div class="floating-card card-2">
 
-                </div>
+            <small>STATUS</small>
 
+            <strong>READY</strong>
 
-                <!-- HERO ART -->
+        </div>
 
-                <div class="hero-art">
+    </div>
 
-                    <div class="level-tag">
-                        LVL. 01
-                    </div>
+</section>
 
-                    <div class="pixel-mountain">
-                        <div class="mountain-back"></div>
-                        <div class="mountain-front"></div>
-                    </div>
 
-                    <div class="xp-card">
-                        <span>BRAND XP</span>
-                        <strong>+100%</strong>
+<!-- =========================
+     INTRO
+========================= -->
 
-                        <div class="xp-bar">
-                            <div></div>
-                        </div>
-                    </div>
+<section class="section intro">
 
-                    <div class="floating-chip chip-one">
-                        STRATEGY
-                    </div>
+    <div class="section-number">
+        01 / EL PROBLEMA
+    </div>
 
-                    <div class="floating-chip chip-two">
-                        GROWTH
-                    </div>
+    <div class="two-columns">
 
-                </div>
+        <h2>
 
-            </div>
-        </section>
+            Tu negocio puede ser bueno.
 
-
-        <!-- ================= PROBLEMA ================= -->
-
-        <section class="problem section">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="section-number">01 /</span>
-
-                    <h2>
-                        TU MARCA NO NECESITA
-                        <span>MÁS DE LO MISMO.</span>
-                    </h2>
-
-                    <p>
-                        Necesita estrategia, creatividad y acciones que
-                        realmente tengan un propósito.
-                    </p>
-                </div>
-
-
-                <div class="problem-grid">
-
-                    <article class="problem-card">
-                        <span>01</span>
-                        <h3>PUBLICAR SIN PLAN</h3>
-                        <p>
-                            Crear contenido sin saber qué objetivo cumple
-                            termina siendo tiempo perdido.
-                        </p>
-                    </article>
-
-                    <article class="problem-card">
-                        <span>02</span>
-                        <h3>MARCA SIN IDENTIDAD</h3>
-                        <p>
-                            Si tu negocio no tiene una identidad clara,
-                            será difícil diferenciarlo.
-                        </p>
-                    </article>
-
-                    <article class="problem-card">
-                        <span>03</span>
-                        <h3>POCA CONVERSIÓN</h3>
-                        <p>
-                            Tener seguidores no significa necesariamente
-                            tener clientes.
-                        </p>
-                    </article>
-
-                    <article class="problem-card">
-                        <span>04</span>
-                        <h3>ESTRATEGIA DESORDENADA</h3>
-                        <p>
-                            Diferentes canales necesitan una dirección
-                            común para crecer.
-                        </p>
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ================= SERVICIOS ================= -->
-
-        <section class="services section" id="servicios">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="section-number">02 /</span>
-
-                    <h2>
-                        LO QUE PODEMOS
-                        <span>HACER POR TI.</span>
-                    </h2>
-
-                    <p>
-                        Un ecosistema de soluciones digitales para llevar
-                        tu negocio al siguiente nivel.
-                    </p>
-                </div>
-
-
-                <div class="services-grid">
-
-                    <article class="service-card purple-card">
-                        <span class="service-icon">◈</span>
-                        <span class="service-number">01</span>
-
-                        <h3>REDES SOCIALES</h3>
-
-                        <p>
-                            Estrategia, contenido y gestión para construir
-                            una comunidad alrededor de tu marca.
-                        </p>
-
-                        <a href="#catalogo">
-                            EXPLORAR →
-                        </a>
-                    </article>
-
-
-                    <article class="service-card pink-card">
-                        <span class="service-icon">✦</span>
-                        <span class="service-number">02</span>
-
-                        <h3>BRANDING</h3>
-
-                        <p>
-                            Creamos una identidad visual que haga que tu
-                            marca sea reconocible y memorable.
-                        </p>
-
-                        <a href="#catalogo">
-                            EXPLORAR →
-                        </a>
-                    </article>
-
-
-                    <article class="service-card blue-card">
-                        <span class="service-icon">▣</span>
-                        <span class="service-number">03</span>
-
-                        <h3>DESARROLLO WEB</h3>
-
-                        <p>
-                            Diseñamos experiencias digitales modernas,
-                            funcionales y orientadas a convertir.
-                        </p>
-
-                        <a href="#catalogo">
-                            EXPLORAR →
-                        </a>
-                    </article>
-
-
-                    <article class="service-card violet-card">
-                        <span class="service-icon">↗</span>
-                        <span class="service-number">04</span>
-
-                        <h3>MARKETING</h3>
-
-                        <p>
-                            Estrategias enfocadas en atraer clientes y
-                            generar oportunidades reales de crecimiento.
-                        </p>
-
-                        <a href="#catalogo">
-                            EXPLORAR →
-                        </a>
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ================= PROCESO ================= -->
-
-        <section class="process section" id="proceso">
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="section-number">03 /</span>
-
-                    <h2>
-                        NUESTRO
-                        <span>PROCESO.</span>
-                    </h2>
-
-                    <p>
-                        Convertimos ideas en estrategias y estrategias
-                        en crecimiento.
-                    </p>
-                </div>
-
-
-                <div class="process-grid">
-
-                    <div class="process-step">
-                        <span>01</span>
-                        <h3>ANALIZAMOS</h3>
-                        <p>Entendemos tu negocio y tu público.</p>
-                    </div>
-
-                    <div class="process-step">
-                        <span>02</span>
-                        <h3>ESTRATEGIZAMOS</h3>
-                        <p>Definimos objetivos y oportunidades.</p>
-                    </div>
-
-                    <div class="process-step">
-                        <span>03</span>
-                        <h3>CREAMOS</h3>
-                        <p>Convertimos la estrategia en contenido.</p>
-                    </div>
-
-                    <div class="process-step">
-                        <span>04</span>
-                        <h3>LANZAMOS</h3>
-                        <p>Ponemos todo en movimiento.</p>
-                    </div>
-
-                    <div class="process-step">
-                        <span>05</span>
-                        <h3>OPTIMIZAMOS</h3>
-                        <p>Analizamos y mejoramos constantemente.</p>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ================= CATÁLOGO ================= -->
-
-        <section class="catalog section" id="catalogo">
-            <div class="container">
-
-                <div class="section-heading catalog-heading">
-
-                    <span class="section-number">04 /</span>
-
-                    <h2>
-                        ELIGE TU
-                        <span>NEXT LEVEL.</span>
-                    </h2>
-
-                    <p>
-                        Soluciones diseñadas para que tu marca deje de
-                        improvisar y empiece a crecer.
-                    </p>
-
-                </div>
-
-
-                <div class="catalog-grid">
-
-
-                    <!-- CONTENT -->
-
-                    <article class="catalog-card catalog-purple">
-
-                        <div class="catalog-top">
-                            <span class="catalog-level">
-                                LEVEL 01
-                            </span>
-
-                            <span class="catalog-symbol">
-                                🎥
-                            </span>
-                        </div>
-
-                        <h3>
-                            ASCEND
-                            <span>CONTENT</span>
-                        </h3>
-
-                        <p class="catalog-subtitle">
-                            Creación de contenido estratégico
-                        </p>
-
-                        <p class="catalog-description">
-                            Creamos contenido pensado para conectar con
-                            tu público, posicionar tu marca y convertir
-                            seguidores en clientes.
-                        </p>
-
-
-                        <div class="catalog-feature-title">
-                            INCLUYE:
-                        </div>
-
-                        <ul class="catalog-features">
-                            <li>6 videos estratégicos</li>
-                            <li>Investigación del público objetivo</li>
-                            <li>Ideas y estructura de contenido</li>
-                            <li>Ganchos estratégicos</li>
-                            <li>Llamados a la acción</li>
-                            <li>Edición lista para publicar</li>
-                        </ul>
-
-
-                        <div class="catalog-price">
-                            <small>INVERSIÓN</small>
-                            <strong>$150</strong>
-                        </div>
-
-
-                        <div class="payment-box">
-                            <strong>3 PAGOS</strong>
-
-                            <span>
-                                $50 reserva
-                            </span>
-
-                            <span>
-                                $50 grabación
-                            </span>
-
-                            <span>
-                                $50 entrega
-                            </span>
-                        </div>
-
-
-                        <a href="#contacto" class="catalog-button">
-                            QUIERO ASCENDER ↑
-                        </a>
-
-                    </article>
-
-
-                    <!-- SOCIAL -->
-
-                    <article class="catalog-card catalog-pink">
-
-                        <div class="catalog-top">
-                            <span class="catalog-level">
-                                LEVEL 02
-                            </span>
-
-                            <span class="catalog-symbol">
-                                📱
-                            </span>
-                        </div>
-
-                        <h3>
-                            ASCEND
-                            <span>SOCIAL</span>
-                        </h3>
-
-                        <p class="catalog-subtitle">
-                            Gestión de redes sociales
-                        </p>
-
-                        <p class="catalog-description">
-                            Una estrategia de contenido constante para
-                            mantener activa tu marca y conectar con las
-                            personas correctas.
-                        </p>
-
-
-                        <div class="catalog-feature-title">
-                            INCLUYE:
-                        </div>
-
-                        <ul class="catalog-features">
-                            <li>Estrategia mensual</li>
-                            <li>Calendario de contenido</li>
-                            <li>Diseño de publicaciones</li>
-                            <li>Copywriting</li>
-                            <li>Gestión de publicaciones</li>
-                            <li>Optimización de contenido</li>
-                        </ul>
-
-
-                        <div class="catalog-price">
-                            <small>DESDE</small>
-                            <strong>$180</strong>
-                            <small>/ MES</small>
-                        </div>
-
-
-                        <div class="catalog-mini-note">
-                            Pensado para marcas que quieren
-                            crecer de forma constante.
-                        </div>
-
-
-                        <a href="#contacto" class="catalog-button">
-                            QUIERO ASCENDER ↑
-                        </a>
-
-                    </article>
-
-
-                    <!-- BRAND -->
-
-                    <article class="catalog-card catalog-blue">
-
-                        <div class="catalog-top">
-                            <span class="catalog-level">
-                                LEVEL 03
-                            </span>
-
-                            <span class="catalog-symbol">
-                                🎨
-                            </span>
-                        </div>
-
-                        <h3>
-                            ASCEND
-                            <span>BRAND</span>
-                        </h3>
-
-                        <p class="catalog-subtitle">
-                            Identidad visual
-                        </p>
-
-                        <p class="catalog-description">
-                            Construimos una identidad visual coherente
-                            para que tu negocio tenga una presencia
-                            profesional y memorable.
-                        </p>
-
-
-                        <div class="catalog-feature-title">
-                            INCLUYE:
-                        </div>
-
-                        <ul class="catalog-features">
-                            <li>Concepto de marca</li>
-                            <li>Paleta de colores</li>
-                            <li>Tipografías</li>
-                            <li>Identidad visual</li>
-                            <li>Aplicaciones básicas</li>
-                            <li>Manual visual básico</li>
-                        </ul>
-
-
-                        <div class="catalog-price">
-                            <small>DESDE</small>
-                            <strong>$120</strong>
-                        </div>
-
-
-                        <div class="catalog-mini-note">
-                            Dale a tu negocio una identidad
-                            que la gente pueda reconocer.
-                        </div>
-
-
-                        <a href="#contacto" class="catalog-button">
-                            QUIERO ASCENDER ↑
-                        </a>
-
-                    </article>
-
-
-                    <!-- WEB -->
-
-                    <article class="catalog-card catalog-violet">
-
-                        <div class="catalog-top">
-                            <span class="catalog-level">
-                                LEVEL 04
-                            </span>
-
-                            <span class="catalog-symbol">
-                                💻
-                            </span>
-                        </div>
-
-                        <h3>
-                            ASCEND
-                            <span>WEB</span>
-                        </h3>
-
-                        <p class="catalog-subtitle">
-                            Landing page para tu negocio
-                        </p>
-
-                        <p class="catalog-description">
-                            Una presencia digital profesional diseñada
-                            para presentar tus servicios y convertir
-                            visitantes en clientes.
-                        </p>
-
-
-                        <div class="catalog-feature-title">
-                            INCLUYE:
-                        </div>
-
-                        <ul class="catalog-features">
-                            <li>Diseño responsive</li>
-                            <li>Sección de servicios</li>
-                            <li>Información de contacto</li>
-                            <li>Botones de conversión</li>
-                            <li>Integración con redes</li>
-                            <li>Optimización visual</li>
-                        </ul>
-
-
-                        <div class="catalog-price">
-                            <small>DESDE</small>
-                            <strong>$200</strong>
-                        </div>
-
-
-                        <div class="catalog-mini-note">
-                            Tu negocio también merece
-                            tener su propio espacio digital.
-                        </div>
-
-
-                        <a href="#contacto" class="catalog-button">
-                            QUIERO ASCENDER ↑
-                        </a>
-
-                    </article>
-
-
-                    <!-- GROW -->
-
-                    <article class="catalog-card catalog-growth">
-
-                        <div class="catalog-top">
-                            <span class="catalog-level">
-                                LEVEL 05
-                            </span>
-
-                            <span class="catalog-symbol">
-                                📈
-                            </span>
-                        </div>
-
-                        <h3>
-                            ASCEND
-                            <span>GROW</span>
-                        </h3>
-
-                        <p class="catalog-subtitle">
-                            Estrategia de crecimiento digital
-                        </p>
-
-                        <p class="catalog-description">
-                            Analizamos tu presencia digital y creamos
-                            un plan de acción para llevar tu negocio
-                            hacia el siguiente nivel.
-                        </p>
-
-
-                        <div class="catalog-feature-title">
-                            INCLUYE:
-                        </div>
-
-                        <ul class="catalog-features">
-                            <li>Diagnóstico digital</li>
-                            <li>Análisis de público objetivo</li>
-                            <li>Estrategia de contenido</li>
-                            <li>Plan de acción</li>
-                            <li>Recomendaciones de crecimiento</li>
-                        </ul>
-
-
-                        <div class="catalog-price">
-                            <small>DESDE</small>
-                            <strong>$100</strong>
-                        </div>
-
-
-                        <div class="catalog-mini-note">
-                            Para negocios que necesitan
-                            saber qué hacer y por qué.
-                        </div>
-
-
-                        <a href="#contacto" class="catalog-button">
-                            QUIERO ASCENDER ↑
-                        </a>
-
-                    </article>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ================= ASCEND INTELLIGENCE ================= -->
-
-        <section class="intelligence section" id="intelligence">
-
-            <div class="container">
-
-                <div class="intelligence-box">
-
-                    <div class="ai-label">
-                        ASCEND / INTELLIGENCE
-                    </div>
-
-                    <h2>
-                        EL FUTURO DE TU
-                        <span>MARCA.</span>
-                    </h2>
-
-                    <p>
-                        Estamos construyendo nuevas herramientas para
-                        potenciar la estrategia digital de nuestros clientes.
-                    </p>
-
-                    <div class="coming-soon">
-                        COMING SOON...
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CONTACTO ================= -->
-
-        <section class="contact section" id="contacto">
-
-            <div class="container contact-grid">
-
-                <div class="contact-content">
-
-                    <span class="section-number">
-                        05 /
-                    </span>
-
-                    <h2>
-                        ¿LISTO PARA
-                        <span>ASCENDER?</span>
-                    </h2>
-
-                    <p>
-                        Cuéntanos sobre tu negocio y descubramos
-                        juntos cuál es el siguiente nivel.
-                    </p>
-
-                    <div class="contact-decoration">
-                        ↑ LEVEL UP ↑
-                    </div>
-
-                </div>
-
-
-                <form class="contact-form" id="contactForm">
-
-                    <div class="form-group">
-                        <label for="name">
-                            NOMBRE
-                        </label>
-
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Tu nombre"
-                            required
-                        >
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="company">
-                            EMPRESA / NEGOCIO
-                        </label>
-
-                        <input
-                            type="text"
-                            id="company"
-                            name="company"
-                            placeholder="Nombre de tu negocio"
-                            required
-                        >
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="email">
-                            EMAIL
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="correo@ejemplo.com"
-                            required
-                        >
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="business">
-                            TIPO DE NEGOCIO
-                        </label>
-
-                        <select
-                            id="business"
-                            name="business"
-                            required
-                        >
-                            <option value="">
-                                Selecciona una opción
-                            </option>
-
-                            <option value="servicios">
-                                Servicios
-                            </option>
-
-                            <option value="productos">
-                                Productos
-                            </option>
-
-                            <option value="restaurante">
-                                Restaurante / comida
-                            </option>
-
-                            <option value="personal">
-                                Marca personal
-                            </option>
-
-                            <option value="otro">
-                                Otro
-                            </option>
-                        </select>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="message">
-                            CUÉNTANOS SOBRE TU PROYECTO
-                        </label>
-
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows="5"
-                            placeholder="¿Qué quieres lograr con tu marca?"
-                            required
-                        ></textarea>
-
-                    </div>
-
-
-                    <button
-                        type="submit"
-                        class="btn btn-primary form-button"
-                    >
-                        ENVIAR SOLICITUD ↑
-                    </button>
-
-                    <p
-                        class="form-message"
-                        id="formMessage"
-                    ></p>
-
-                </form>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer class="footer">
-
-        <div class="container footer-container">
-
-            <div class="footer-logo">
-                <span class="logo-symbol">▲</span>
-                ASCEND
-            </div>
-
-            <p>
-                Eleva tu marca, asciende con nosotros.
-            </p>
-
-            <span class="footer-copy">
-                © 2026 ASCEND
+            <span>
+                Tu presencia digital también.
             </span>
 
+        </h2>
+
+        <div>
+
+            <p class="large-text">
+
+                Muchos negocios tienen algo excelente que ofrecer,
+                pero su presencia en internet no lo demuestra.
+
+            </p>
+
+            <p>
+
+                Redes abandonadas, publicaciones sin dirección,
+                una imagen poco clara o simplemente no tener una
+                página donde los clientes puedan encontrarte.
+
+                <br><br>
+
+                EVOLVA convierte ese caos en una presencia digital
+                con propósito.
+
+            </p>
+
         </div>
 
-    </footer>
+    </div>
+
+</section>
 
 
-    <script src="script.js"></script>
+<!-- =========================
+     SERVICIOS
+========================= -->
+
+<section id="servicios" class="section services">
+
+    <div class="section-header">
+
+        <div>
+
+            <div class="section-number">
+                02 / LO QUE HACEMOS
+            </div>
+
+            <h2>
+
+                Tu negocio.
+
+                <span>
+                    Más fácil de encontrar.
+                </span>
+
+            </h2>
+
+        </div>
+
+        <p>
+
+            No necesitas entender términos complicados.
+            Tú nos cuentas qué necesita tu negocio y nosotros
+            encontramos la forma de llevarlo al mundo digital.
+
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+        <article class="service-card">
+
+            <span class="service-number">01</span>
+
+            <div class="service-icon">
+                ▦
+            </div>
+
+            <h3>
+                Contenido para tus redes
+            </h3>
+
+            <p>
+
+                Creamos publicaciones, videos e ideas para mostrar
+                lo mejor de tu negocio.
+
+            </p>
+
+            <span class="service-footer">
+                CONTENIDO ↗
+            </span>
+
+        </article>
+
+
+        <article class="service-card featured">
+
+            <span class="service-number">02</span>
+
+            <div class="service-icon">
+                ◉
+            </div>
+
+            <h3>
+                Nos encargamos de tus redes
+            </h3>
+
+            <p>
+
+                Organizamos publicaciones, mantenemos activas tus
+                redes y ayudamos a mantener una comunicación constante.
+
+            </p>
+
+            <span class="service-footer">
+                COMMUNITY MANAGER ↗
+            </span>
+
+        </article>
+
+
+        <article class="service-card">
+
+            <span class="service-number">03</span>
+
+            <div class="service-icon">
+                ✦
+            </div>
+
+            <h3>
+                Haz que tu marca sea reconocible
+            </h3>
+
+            <p>
+
+                Definimos logo, colores, estilo y elementos visuales
+                para que tu negocio tenga una identidad propia.
+
+            </p>
+
+            <span class="service-footer">
+                BRANDING ↗
+            </span>
+
+        </article>
+
+
+        <article class="service-card">
+
+            <span class="service-number">04</span>
+
+            <div class="service-icon">
+                ⌁
+            </div>
+
+            <h3>
+                Lleva tu negocio a internet
+            </h3>
+
+            <p>
+
+                Creamos una página donde tus clientes puedan
+                conocerte, ver tus servicios y contactarte.
+
+            </p>
+
+            <span class="service-footer">
+                PÁGINA WEB ↗
+            </span>
+
+        </article>
+
+
+        <article class="service-card">
+
+            <span class="service-number">05</span>
+
+            <div class="service-icon">
+                ↗
+            </div>
+
+            <h3>
+                Haz crecer tu negocio
+            </h3>
+
+            <p>
+
+                Creamos estrategias para aumentar tu presencia,
+                atraer clientes y aprovechar mejor tus canales digitales.
+
+            </p>
+
+            <span class="service-footer">
+                MARKETING ↗
+            </span>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DIAGNÓSTICO
+========================= -->
+
+<section id="diagnostico" class="section diagnostic">
+
+    <div class="section-number">
+        03 / QUICK SCAN
+    </div>
+
+    <div class="diagnostic-container">
+
+        <div class="diagnostic-intro">
+
+            <span class="terminal">
+                EVOLVA / DIGITAL SCAN
+            </span>
+
+            <h2>
+                ¿No sabes
+                <span>por dónde empezar?</span>
+            </h2>
+
+            <p>
+
+                No necesitas saber de marketing para descubrir
+                qué necesita tu negocio.
+
+                <br><br>
+
+                Responde tres preguntas y te mostraremos
+                una ruta inicial.
+
+            </p>
+
+            <div class="system-status">
+
+                <span></span>
+
+                SISTEMA LISTO
+
+            </div>
+
+        </div>
+
+
+        <form id="diagnosticForm" class="diagnostic-form">
+
+            <!-- QUESTION 1 -->
+
+            <div class="question active">
+
+                <small>
+                    01 / 03
+                </small>
+
+                <h3>
+                    ¿Cómo está actualmente tu presencia digital?
+                </h3>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="presence"
+                        value="physical"
+                    >
+
+                    Tengo un negocio físico, pero casi no estoy
+                    en internet.
+
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="presence"
+                        value="social"
+                    >
+
+                    Tengo redes, pero publico poco o sin estrategia.
+
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="presence"
+                        value="active"
+                    >
+
+                    Tengo redes activas, pero quiero mejorar.
+
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 2 -->
+
+            <div class="question">
+
+                <small>
+                    02 / 03
+                </small>
+
+                <h3>
+                    ¿Qué quieres conseguir principalmente?
+                </h3>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="goal"
+                        value="visibility"
+                    >
+
+                    Que más personas conozcan mi negocio.
+
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="goal"
+                        value="image"
+                    >
+
+                    Que mi negocio se vea más profesional.
+
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="goal"
+                        value="customers"
+                    >
+
+                    Conseguir más clientes.
+
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="goal"
+                        value="digital"
+                    >
+
+                    Tener una presencia digital completa.
+
+                </label>
+
+            </div>
+
+
+            <!-- QUESTION 3 -->
+
+            <div class="question">
+
+                <small>
+                    03 / 03
+                </small>
+
+                <h3>
+                    ¿Qué te gustaría mejorar primero?
+                </h3>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="priority"
+                        value="content"
+                    >
+
+                    Contenido para redes.
+
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="priority"
+                        value="management"
+                    >
+
+                    Manejo de mis redes.
+
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="priority"
+                        value="branding"
+                    >
+
+                    La imagen de mi negocio.
+
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="priority"
+                        value="web"
+                    >
+
+                    Una página web.
+
+                </label>
+
+            </div>
+
+
+            <div class="diagnostic-controls">
+
+                <button
+                    type="button"
+                    id="diagnosticBack"
+                    class="button secondary"
+                >
+                    ← Atrás
+                </button>
+
+                <div class="steps">
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <button
+                    type="button"
+                    id="diagnosticNext"
+                    class="button primary"
+                >
+                    Continuar →
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- RESULT -->
+
+        <div id="diagnosticResult" class="diagnostic-result">
+
+            <span class="terminal">
+                EVOLVA / RESULT
+            </span>
+
+            <h3 id="resultTitle">
+                Tu siguiente paso.
+            </h3>
+
+            <p id="resultText"></p>
+
+            <div id="resultServices"></div>
+
+            <button
+                id="diagnosticReset"
+                class="button primary"
+            >
+                Volver a empezar
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- <!-- =========================
+     CATÁLOGO
+========================= -->
+
+<section id="proyectos" class="section portfolio">
+
+    <div class="section-header">
+
+        <div>
+
+            <div class="section-number">
+                04 / CATÁLOGO
+            </div>
+
+            <h2>
+
+                Lo que tu negocio
+                <span>puede necesitar.</span>
+
+            </h2>
+
+        </div>
+
+        <p>
+
+            No tienes que contratarlo todo.
+            Elige lo que tu negocio necesita ahora
+            y podemos construir el resto contigo.
+
+        </p>
+
+    </div>
+
+
+    <div class="portfolio-grid">
+
+        <!-- SERVICIO 01 -->
+
+        <article class="project project-large">
+
+            <div class="project-image barber">
+
+                <span>
+                    REDES
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <div>
+
+                    <small>
+                        OPCIÓN 01
+                    </small>
+
+                    <h3>
+                        Contenido para tus redes
+                    </h3>
+
+                </div>
+
+                <span>
+                    CONTENIDO ↗
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- SERVICIO 02 -->
+
+        <article class="project">
+
+            <div class="project-image cafe">
+
+                <span>
+                    SOCIAL
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <div>
+
+                    <small>
+                        OPCIÓN 02
+                    </small>
+
+                    <h3>
+                        Manejo de tus redes
+                    </h3>
+
+                </div>
+
+                <span>
+                    COMMUNITY ↗
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- SERVICIO 03 -->
+
+        <article class="project">
+
+            <div class="project-image gym">
+
+                <span>
+                    MARCA
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <div>
+
+                    <small>
+                        OPCIÓN 03
+                    </small>
+
+                    <h3>
+                        Identidad para tu negocio
+                    </h3>
+
+                </div>
+
+                <span>
+                    BRANDING ↗
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- SERVICIO 04 -->
+
+        <article class="project">
+
+            <div class="project-image cafe">
+
+                <span>
+                    WEB
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <div>
+
+                    <small>
+                        OPCIÓN 04
+                    </small>
+
+                    <h3>
+                        Tu negocio en internet
+                    </h3>
+
+                </div>
+
+                <span>
+                    PÁGINA WEB ↗
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- SERVICIO 05 -->
+
+        <article class="project">
+
+            <div class="project-image barber">
+
+                <span>
+                    GROW
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <div>
+
+                    <small>
+                        OPCIÓN 05
+                    </small>
+
+                    <h3>
+                        Estrategia para crecer
+                    </h3>
+
+                </div>
+
+                <span>
+                    MARKETING ↗
+                </span>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COMPARADOR
+========================= -->
+
+<section id="evolucion" class="section evolution">
+
+    <div class="section-number">
+        05 / EVOLUCIÓN
+    </div>
+
+    <div class="two-columns evolution-title">
+
+        <h2>
+
+            De presencia básica
+
+            <span>
+                a presencia digital.
+            </span>
+
+        </h2>
+
+        <p>
+
+            Una buena estrategia no solo hace que tu negocio
+            se vea diferente. Hace que sea más fácil de entender,
+            encontrar y recordar.
+
+        </p>
+
+    </div>
+
+
+    <div id="comparison" class="comparison">
+
+        <div class="comparison-before">
+
+            <span class="comparison-label">
+                ANTES
+            </span>
+
+            <div class="social-mock old">
+
+                <div class="social-header">
+                    MI NEGOCIO
+                </div>
+
+                <div class="avatar"></div>
+
+                <div class="lines"></div>
+
+                <div class="post-grid">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </div>
+
+            </div>
+
+            <ul>
+
+                <li>Redes poco organizadas</li>
+                <li>Imagen inconsistente</li>
+                <li>Sin página web</li>
+                <li>Contenido sin dirección</li>
+
+            </ul>
+
+        </div>
+
+
+        <div id="comparisonAfter" class="comparison-after">
+
+            <span class="comparison-label">
+                DESPUÉS
+            </span>
+
+            <div class="social-mock new">
+
+                <div class="social-header">
+                    MI NEGOCIO ✦
+                </div>
+
+                <div class="avatar"></div>
+
+                <div class="lines"></div>
+
+                <div class="post-grid">
+
+                    <i></i>
+                    <i></i>
+                    <i></i>
+
+                </div>
+
+            </div>
+
+            <ul>
+
+                <li>Contenido organizado</li>
+                <li>Marca reconocible</li>
+                <li>Presencia web</li>
+                <li>Estrategia digital</li>
+
+            </ul>
+
+        </div>
+
+
+        <div id="comparisonHandle" class="comparison-handle">
+            ↔
+        </div>
+
+    </div>
+
+
+    <input
+        id="comparisonRange"
+        class="comparison-range"
+        type="range"
+        min="20"
+        max="80"
+        value="50"
+    >
+
+</section>
+
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section id="faq" class="section faq">
+
+    <div class="section-header">
+
+        <div>
+
+            <div class="section-number">
+                06 / PREGUNTAS
+            </div>
+
+            <h2>
+
+                Lo que necesitas
+                <span>saber.</span>
+
+            </h2>
+
+        </div>
+
+        <p>
+            No necesitas ser experto en marketing.
+            Esa parte nos toca a nosotros.
+        </p>
+
+    </div>
+
+
+    <div class="faq-list">
+
+        <details>
+
+            <summary>
+                ¿Necesito saber de redes sociales?
+                <span>+</span>
+            </summary>
+
+            <p>
+
+                No. Te explicamos todo de manera sencilla
+                y nos encargamos de la parte técnica.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                ¿Tengo que contratar todos los servicios?
+                <span>+</span>
+            </summary>
+
+            <p>
+
+                No. Puedes empezar solamente con lo que
+                realmente necesita tu negocio.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                ¿Necesito una página web?
+                <span>+</span>
+            </summary>
+
+            <p>
+
+                Depende del negocio y de tus objetivos.
+                Primero analizamos si realmente puede ayudarte.
+
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                ¿Qué significa digitalizar mi negocio?
+                <span>+</span>
+            </summary>
+
+            <p>
+
+                Significa utilizar herramientas digitales para
+                mejorar cómo tu negocio se presenta, comunica
+                y conecta con sus clientes.
+
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section id="contacto" class="section final-cta">
+
+    <div class="background-word">
+        EVOLVA_
+    </div>
+
+    <div class="section-number">
+        07 / SIGUIENTE NIVEL
+    </div>
+
+    <h2>
+
+        Tu negocio ya existe.
+
+        <span>
+            Ahora hagámoslo evolucionar.
+        </span>
+
+    </h2>
+
+    <a
+        href="mailto:hola@evolva.ec"
+        class="button primary large"
+    >
+        Hablemos de tu negocio ↗
+    </a>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div>
+
+        <a class="logo">
+            EVOLVA<span>_</span>
+        </a>
+
+        <p>
+            Digitalizamos negocios.<br>
+            Evolucionamos marcas.
+        </p>
+
+    </div>
+
+    <div class="footer-info">
+
+        <span>
+            EVOLVA © 2026
+        </span>
+
+        <span>
+            BUILD 01.00
+        </span>
+
+        <span>
+            READY TO EVOLVE.
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
