@@ -96,7 +96,15 @@ function requireAdmin(request, response, next) {
 }
 
 app.disable('x-powered-by');
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+      'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+      'font-src': ["'self'", 'https://fonts.gstatic.com', 'data:']
+    }
+  }
+}));
 app.use(express.json({ limit: '15kb' }));
 
 app.use((request, response, next) => {
