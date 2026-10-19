@@ -262,22 +262,40 @@ input {
 
 
 .logo {
-
-    font-family: var(--mono);
-
-    font-size: 21px;
-
-    font-weight: 600;
-
-    letter-spacing: -.08em;
-
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     color: var(--white);
-
+    text-decoration: none;
 }
 
+.logo-mark {
+    width: 27px;
+    height: 34px;
+    flex: 0 0 auto;
+    color: var(--gold-light);
+}
 
-.logo span {
-    color: var(--gold);
+.logo-lockup {
+    display: grid;
+    gap: 2px;
+}
+
+.logo-wordmark {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: .17em;
+}
+
+.logo-tagline {
+    color: var(--muted);
+    font-family: "Montserrat", var(--mono);
+    font-size: 6px;
+    font-weight: 500;
+    letter-spacing: .22em;
+    white-space: nowrap;
 }
 
 

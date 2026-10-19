@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" fill="none">
+  <defs>
+    <linearGradient id="champagne" x1="14" y1="16" x2="87" y2="104" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0D9AE"/>
+      <stop offset=".48" stop-color="#B89058"/>
+      <stop offset="1" stop-color="#E5C892"/>
+    </linearGradient>
+  </defs>
+  <path d="M19 73C23 43 47 19 82 8C75 31 55 43 35 55C27 61 22 67 19 73Z" fill="url(#champagne)"/>
+  <path d="M29 81C42 64 64 53 89 47C80 65 60 72 39 78L29 81Z" fill="url(#champagne)"/>
+  <path d="M25 84C44 78 66 86 90 103C66 106 45 99 31 91C25 88 22 86 25 84Z" fill="url(#champagne)"/>
+</svg>
