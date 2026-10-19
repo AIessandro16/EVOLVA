@@ -40,6 +40,13 @@ const contactLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false
 });
+const aiLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  limit: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Has enviado varias preguntas seguidas. Espera un minuto y vuelve a intentarlo.' }
+});
 const loginLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   limit: 5,
@@ -175,6 +182,97 @@ app.delete('/api/admin/contacts/:id', requireAdmin, (request, response) => {
   const result = database.prepare('DELETE FROM contact_requests WHERE id = ?').run(id);
   if (!result.changes) return response.status(404).json({ error: 'La solicitud ya no existe.' });
   return response.json({ ok: true });
+});
+
+app.post('/api/assistant', aiLimiter, async (req, res) => {
+  const message = String(req.body?.message || '').trim();
+  if (message.length < 2 || message.length > 500) return res.status(400).json({ error: 'Escribe un mensaje de 2 a 500 caracteres.' });
+  if (!process.env.GEMINI_API_KEY) return res.status(503).json({ error: 'El asistente estará disponible cuando se configure la clave de IA.' });
+
+  const history = Array.isArray(req.body?.history)
+    ? req.body.history.slice(-8)
+      .map((item) => {
+        if (item?.role === 'user' && typeof item.text === 'string') {
+          return { role: 'user', parts: [{ text: item.text.slice(0, 1000) }] };
+        }
+        if (item?.role === 'assistant' && Array.isArray(item.parts)) {
+          const parts = item.parts.slice(0, 4).map((part) => {
+            const safePart = {};
+            if (typeof part?.text === 'string') safePart.text = part.text.slice(0, 1200);
+            if (typeof part?.thoughtSignature === 'string') safePart.thoughtSignature = part.thoughtSignature;
+            if (typeof part?.thought === 'boolean') safePart.thought = part.thought;
+            return safePart;
+          }).filter((part) => Object.keys(part).length);
+          return parts.length ? { role: 'model', parts } : null;
+        }
+        if (item?.role === 'assistant' && typeof item.text === 'string') {
+          return { role: 'model', parts: [{ text: item.text.slice(0, 1000) }] };
+        }
+        return null;
+      })
+      .filter(Boolean)
+    : [];
+  const instructions = `Eres Evol, el asistente de EVOLVA, un pequeño negocio de Ecuador que ayuda a otros negocios con su imagen, sus redes sociales y sus páginas web. Hablas siempre en español, de forma amable y sencilla, como si explicaras las cosas a alguien que no trabaja en marketing.
+
+PUBLICO Y NECESIDAD PRINCIPAL
+EVOLVA está pensado especialmente para pequeños emprendimientos que están empezando o todavía no tienen movimiento en redes: por ejemplo, una hamburguesería, una tienda pequeña o alguien que revende ropa. No supongas que la persona ya tiene seguidores, publicaciones, una marca definida o página web. Puede ayudarle a comenzar desde cero y también a mejorar una presencia que ya existe.
+
+AYUDA A LA PERSONA
+Primero entiende qué negocio tiene, cómo vende hoy, qué quiere lograr y qué recursos tiene. Si falta un dato importante, haz una sola pregunta breve. Recomienda un primer paso realista y solo los servicios relacionados con su situación; explica cómo se conecta el servicio con la necesidad. No presiones a contratar si todavía necesita aclarar su idea. Recomienda solo los servicios que tengan relación con lo que cuenta. Explica los términos técnicos con palabras comunes; por ejemplo, una página web sencilla es un lugar en internet donde el negocio presenta lo que ofrece y cómo contactarlo. Un calendario de publicaciones es una lista de qué publicar y cuándo.
+
+SERVICIOS Y PRECIOS ACTUALES EN DÓLARES
+Servicios puntuales: revisión del negocio en internet $25; diseño de logotipo $60; imagen de marca $125; diseños y textos para redes $45; página web para el negocio $200; plan de ideas para el negocio $70.
+Community manager (manejo de redes): Inicio $99 al mes (8 publicaciones con textos, calendario sencillo, publicación en 1 red, respuestas a comentarios y mensajes hasta 15 minutos al día, 3 días por semana); Crecimiento $179 al mes (12 publicaciones, hasta 2 videos cortos editados con videos que entrega el cliente, 8 historias, publicación en hasta 2 redes y respuestas hasta 30 minutos al día, 3 días por semana); Presencia Plus $249 al mes (16 publicaciones, hasta 4 videos cortos editados con videos del cliente, 12 historias, hasta 2 redes y respuestas hasta 30 minutos diarios de lunes a viernes). No incluyen anuncios; ninguno ofrece atención permanente. Los planes se pagan al inicio del mes.
+Paquetes: Imagen lista para publicar $175; Tu negocio en internet $205; Redes en marcha $195 el primer mes (plan Crecimiento más revisión inicial).
+Estos son precios iniciales y el valor final se confirma antes de comenzar. Los costos de dirección y alojamiento de una página, anuncios, fotos e impresiones se pagan aparte y se acuerdan previamente. No inventes descuentos, tiempos, servicios ni entregables. No prometas ventas, seguidores ni resultados específicos.
+
+FORMA DE RESPONDER
+Usa de 2 a 5 frases, con un máximo de 120 palabras. Ve al punto y evita jerga. Si preguntan por precios, menciona los actuales tal como aparecen arriba. Si preguntan por el community manager, aclara que organiza y publica contenido y responde a la comunidad dentro del tiempo del plan; no contesta 24/7 ni cierra ventas por el negocio. Si quieren contratar, invítales a completar el formulario de contacto. No pidas contraseñas, claves, datos bancarios ni información sensible.`;
+  try {
+    const upstream = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${process.env.GEMINI_MODEL || 'gemini-3.8-flash'}:generateContent`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': process.env.GEMINI_API_KEY },
+      body: JSON.stringify({ systemInstruction: { parts: [{ text: instructions }] }, contents: [...history, { role: 'user', parts: [{ text: message }] }], generationConfig: { maxOutputTokens: 1200, thinkingConfig: { thinkingLevel: 'low' } } }),
+      signal: AbortSignal.timeout(20000)
+    });
+    if (!upstream.ok) {
+      const providerError = await upstream.json().catch(() => ({}));
+      const providerStatus = upstream.status;
+      const providerCode = providerError.error?.status || '';
+      console.error(`Gemini rechazó la solicitud: HTTP ${providerStatus}${providerCode ? ` (${providerCode})` : ''}`);
+      let message = 'Gemini no pudo completar la respuesta. Inténtalo nuevamente en un momento.';
+      if (providerStatus === 401 || providerStatus === 403) {
+        message = 'Gemini rechazó el acceso. Revisa que la clave esté activa y tenga permisos para usar la API.';
+      } else if (providerStatus === 429) {
+        message = 'Gemini alcanzó su límite de uso o cuota. Espera un momento o revisa la cuota de la clave.';
+      } else if (providerStatus === 404) {
+        message = 'No se encontró el modelo de IA configurado. Revisa GEMINI_MODEL.';
+      } else if (providerStatus === 400) {
+        message = 'Gemini rechazó la solicitud. Revisa la configuración del modelo y el formato de la petición.';
+      }
+      return res.status(502).json({ error: message, providerStatus });
+    }
+    const data = await upstream.json();
+    const candidate = data.candidates?.[0];
+    if (candidate?.finishReason === 'MAX_TOKENS') {
+      return res.status(502).json({ error: 'La respuesta quedó incompleta. Prueba con una pregunta más corta y te responderé de nuevo.' });
+    }
+    if (['SAFETY', 'RECITATION', 'BLOCKLIST', 'PROHIBITED_CONTENT'].includes(candidate?.finishReason)) {
+      return res.status(502).json({ error: 'No pude responder esa pregunta tal como está escrita. Intenta formularla de otra manera.' });
+    }
+    const answer = candidate?.content?.parts?.filter((part) => !part.thought).map((part) => part.text || '').join('').trim();
+    if (!answer) throw new Error('Respuesta vacía de IA');
+    return res.json({ answer, modelTurn: { parts: candidate.content?.parts || [{ text: answer }] } });
+  } catch (error) {
+    console.error('No se pudo generar respuesta de IA:', error.message);
+    if (error.name === 'TimeoutError' || error.name === 'AbortError') {
+      return res.status(504).json({ error: 'La respuesta está tardando más de lo normal. Inténtalo otra vez en un momento.' });
+    }
+    if (error instanceof TypeError) {
+      return res.status(502).json({ error: 'No pude conectar con el servicio de IA. Revisa tu conexión e inténtalo de nuevo.' });
+    }
+    return res.status(502).json({ error: 'El asistente no pudo responder ahora. Inténtalo de nuevo en un momento.' });
+  }
 });
 
 app.get('/api/health', (_request, response) => {
