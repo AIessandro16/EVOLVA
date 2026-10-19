@@ -121,6 +121,8 @@ app.use((request, response, next) => {
   next();
 });
 
+app.use(express.static(path.join(__dirname, '../frontend')));
+
 app.post('/api/contact', contactLimiter, (request, response) => {
   const body = request.body || {};
   const name = String(body.name || '').trim();
