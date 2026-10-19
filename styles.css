@@ -2497,3 +2497,34 @@ body.light .contact-form input:not([type=checkbox]), body.light .contact-form se
     .catalog-card:hover,.plan-card:hover { transform:none; }
 }
 
+
+/* Panel de administración */
+.admin-page { min-height:100vh; padding:clamp(1.25rem,5vw,4rem); background:var(--black); color:var(--white); }
+.admin-shell { width:min(980px,100%); margin:0 auto; }
+.admin-shell > .logo { display:inline-flex; margin-bottom:3rem; color:inherit; text-decoration:none; }
+.admin-card,.admin-dashboard { padding:clamp(1.25rem,4vw,2.5rem); border:1px solid var(--line,rgba(255,255,255,.18)); background:var(--surface,rgba(255,255,255,.03)); }
+.admin-card { width:min(500px,100%); margin:2rem auto; }
+.admin-card h1,.admin-dashboard h1 { margin:.8rem 0; font-size:clamp(2rem,5vw,3.4rem); }
+.admin-card > p { opacity:.75; }
+.admin-form { display:grid; gap:.8rem; margin:1.5rem 0; }
+.admin-form label { font-size:.85rem; }
+.admin-form input { padding:.9rem; border:1px solid var(--line,rgba(255,255,255,.25)); color:inherit; background:var(--black); font:inherit; }
+.admin-form input:focus { outline:2px solid var(--gold); }
+.admin-status { min-height:1.4em; font-size:.85rem; }
+.admin-back { display:inline-block; margin-top:1rem; color:var(--gold); }
+.admin-dashboard-heading,.contact-card-heading { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
+.admin-count { font: .8rem "IBM Plex Mono",monospace; opacity:.7; }
+.contact-list { display:grid; gap:1rem; margin-top:1rem; }
+.contact-card { padding:1.2rem; border:1px solid var(--line,rgba(255,255,255,.16)); }
+.contact-card h2 { margin:0; font-size:1.2rem; }
+.contact-card time { font-size:.78rem; opacity:.65; }
+.contact-card dl { display:flex; flex-wrap:wrap; gap:1rem 2rem; margin:1rem 0; }
+.contact-card dl div { min-width:140px; }
+.contact-card dt { font: .68rem "IBM Plex Mono",monospace; opacity:.65; text-transform:uppercase; }
+.contact-card dd { margin:.3rem 0 0; overflow-wrap:anywhere; }
+.contact-card-message { margin:0; padding:1rem; line-height:1.6; background:var(--surface,rgba(255,255,255,.04)); white-space:pre-wrap; overflow-wrap:anywhere; }
+.contact-delete-button { margin-top:1rem; }
+.empty-state { padding:2rem; text-align:center; border:1px dashed var(--line,rgba(255,255,255,.2)); opacity:.7; }
+[hidden] { display:none!important; }
+@media(max-width:600px) { .admin-page { padding:1rem; } .admin-dashboard-heading { align-items:flex-start; } }
+

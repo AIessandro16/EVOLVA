@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Acceso privado para gestionar consultas recibidas por EVOLVA.">
+    <title>Administración — EVOLVA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="evolva-mark.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-page">
+    <main class="admin-shell">
+        <a class="logo" href="index.html" aria-label="EVOLVA, impulsamos tu negocio">
+            <img class="logo-mark" src="evolva-mark.svg" alt="">
+            <span class="logo-lockup">
+                <span class="logo-wordmark">EVOLVA</span>
+                <span class="logo-tagline">IMPULSAMOS TU NEGOCIO</span>
+            </span>
+        </a>
+        <div class="section-number">ÁREA PRIVADA / CONSULTAS</div>
+        <section class="admin-card" id="loginPanel">
+            <span class="terminal">ACCESO ADMINISTRADOR</span>
+            <h1>Bienvenido.</h1>
+            <p>Inicia sesión para revisar las consultas de tus clientes.</p>
+            <form id="loginForm" class="admin-form">
+                <label for="adminPassword">Contraseña de administrador</label>
+                <input id="adminPassword" name="password" type="password" autocomplete="current-password" required minlength="12">
+                <button class="button primary" type="submit" id="loginButton">Entrar ↗</button>
+            </form>
+            <p class="admin-status" id="loginStatus" role="status" aria-live="polite"></p>
+            <a class="admin-back" href="index.html">← Volver al sitio</a>
+        </section>
+
+        <section class="admin-dashboard" id="dashboard" hidden>
+            <div class="admin-dashboard-heading"><div><span class="terminal">BUZÓN EVOLVA</span><h1>Consultas recibidas</h1></div><button class="button secondary" type="button" id="logoutButton">Cerrar sesión</button></div>
+            <p id="contactCount" class="admin-count"></p>
+            <div id="contactList" class="contact-list" aria-live="polite"></div>
+            <p class="admin-status" id="dashboardStatus" role="status" aria-live="polite"></p>
+        </section>
+    </main>
+    <script src="config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
