@@ -2374,3 +2374,11 @@ footer p {
     }
 
 }
+/* Método de trabajo EVOLVA: seis pasos visibles y adaptables a móvil */
+.evolva-method { margin-top:1.6rem; padding:1rem; border:1px solid var(--line); background:var(--black-2); }
+.evolva-method-intro { margin:0 0 .8rem; font-size:.86rem; line-height:1.6; }
+.evolva-method ol { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:.5rem; padding:0; margin:0; list-style:none; }
+.evolva-method li { display:grid; justify-items:center; gap:.3rem; padding:.65rem .3rem; border:1px solid var(--line); text-align:center; }
+.evolva-method li strong { color:var(--gold); font:600 1.15rem var(--mono); }
+.evolva-method li span { font-size:.72rem; }
+@media(max-width:700px) { .evolva-method ol { grid-template-columns:repeat(3,minmax(0,1fr)); } }
