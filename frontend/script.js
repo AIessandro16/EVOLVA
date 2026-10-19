@@ -46,36 +46,34 @@ const loadingInterval = setInterval(() => {
 ========================= */
 
 const themeToggle = $("#themeToggle");
-
-const savedTheme =
-    localStorage.getItem("evolva-theme");
-
+const arcadeTransition = $("#arcadeTransition");
+const savedTheme = localStorage.getItem("evolva-theme");
 
 if (savedTheme === "light") {
-
     document.body.classList.add("light");
-
     themeToggle.textContent = "☾";
-
 }
 
-
 themeToggle.addEventListener("click", () => {
-
     document.body.classList.toggle("light");
 
-    const isLight =
-        document.body.classList.contains("light");
+    const isLight = document.body.classList.contains("light");
+    localStorage.setItem("evolva-theme", isLight ? "light" : "dark");
+    themeToggle.textContent = isLight ? "☾" : "☼";
 
-    localStorage.setItem(
-        "evolva-theme",
-        isLight ? "light" : "dark"
-    );
+    if (!arcadeTransition || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    themeToggle.textContent =
-        isLight ? "☾" : "☼";
-
+    arcadeTransition.classList.remove("active");
+    void arcadeTransition.offsetWidth;
+    arcadeTransition.classList.add("active");
 });
+
+arcadeTransition?.addEventListener("animationend", (event) => {
+    if (event.animationName === "theme-soft-glow") {
+        arcadeTransition.classList.remove("active");
+    }
+});
+
 
 
 /* =========================

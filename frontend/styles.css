@@ -2546,3 +2546,30 @@ body.light .contact-form input:not([type=checkbox]), body.light .contact-form se
 .assistant-form button { width:44px; border:0; color:#111; background:var(--accent,#d5ad58); font-size:1.3rem; cursor:pointer; }
 .assistant-form button:disabled { opacity:.5; cursor:wait; }
 @media(max-width:600px) { .assistant-widget { right:.75rem; bottom:.75rem; } .assistant-panel { max-height:70vh; } }
+
+
+/* Cambio de tema suave con un reflejo cálido inspirado en la paleta EVOLVA */
+#arcadeTransition {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    background:
+        radial-gradient(ellipse at 50% 18%, rgba(227,197,143,.12), transparent 58%),
+        linear-gradient(115deg, transparent 25%, rgba(201,166,107,.045) 50%, transparent 75%);
+}
+#arcadeTransition.active {
+    visibility: visible;
+    animation: theme-soft-glow 520ms ease-out both;
+}
+@keyframes theme-soft-glow {
+    0% { opacity: 0; transform: scale(.99); }
+    32% { opacity: .8; }
+    100% { opacity: 0; transform: scale(1.015); visibility: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #arcadeTransition { display: none !important; }
+}
