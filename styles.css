@@ -2423,3 +2423,46 @@ footer p {
 .external-costs p { font-size:.9rem; line-height:1.7; }
 @media(max-width:900px) { .catalog-grid,.plans-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:620px) { .catalog-grid,.plans-grid { grid-template-columns:1fr; } .combo-item { grid-template-columns:1fr auto; gap:.5rem 1rem; } .combo-item a { grid-column:1/-1; } .catalog-desc { min-height:0; } }
+
+/* Comparación fija: dos tarjetas, sin control deslizante */
+.comparison {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 2.5vw, 2rem);
+    width: min(var(--max), 100%);
+    height: auto;
+    margin: auto;
+    overflow: visible;
+    border: 0;
+}
+.comparison-card {
+    position: relative;
+    inset: auto;
+    min-width: 0;
+    overflow: hidden;
+    padding: 3.5rem clamp(1.2rem, 3vw, 3rem) 1.4rem;
+    border: 1px solid var(--line);
+}
+.comparison-before { background: #181713; }
+body.light .comparison-before { background: #e4dacb; }
+.comparison-after {
+    width: auto;
+    color: var(--white);
+    background: #211b0e;
+    border: 1px solid var(--gold);
+}
+body.light .comparison-after {
+    color: #231f1a;
+    background: #f5efe5;
+}
+.comparison-handle, .comparison-range { display: none !important; }
+@media (max-width: 900px) {
+    .comparison {
+        grid-template-columns: 1fr;
+        width: min(620px, 100%);
+    }
+    .comparison-card { padding: 3.2rem 1.5rem 1.3rem; }
+    .comparison .social-mock { height: 270px; }
+}
+
