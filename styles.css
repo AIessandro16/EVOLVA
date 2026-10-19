@@ -2528,3 +2528,21 @@ body.light .contact-form input:not([type=checkbox]), body.light .contact-form se
 [hidden] { display:none!important; }
 @media(max-width:600px) { .admin-page { padding:1rem; } .admin-dashboard-heading { align-items:flex-start; } }
 
+
+
+.assistant-widget { position:fixed; z-index:30; right:clamp(1rem,3vw,2rem); bottom:1.25rem; display:grid; justify-items:end; gap:.7rem; font-family:"Space Grotesk",sans-serif; }
+.assistant-toggle { padding:.9rem 1.2rem; border:1px solid var(--accent,#d5ad58); color:#111; background:var(--accent,#d5ad58); font:600 .9rem "IBM Plex Mono",monospace; box-shadow:0 8px 30px #0005; cursor:pointer; }
+.assistant-panel { width:min(390px,calc(100vw - 2rem)); max-height:min(540px,75vh); overflow:auto; padding:1.2rem; border:1px solid var(--gold); color:var(--white); background:var(--surface); box-shadow:0 14px 48px #0008; }
+.assistant-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; }
+.assistant-heading h2 { margin:.4rem 0 0; font-size:1.45rem; }
+.assistant-heading button { border:0; color:inherit; background:transparent; font-size:1.6rem; cursor:pointer; }
+.assistant-intro,.assistant-note { font-size:.84rem; line-height:1.6; opacity:.75; }
+.assistant-messages { display:grid; gap:.6rem; max-height:245px; overflow:auto; margin:1rem 0; }
+.assistant-message { min-width:0; max-width:90%; margin:0; padding:.7rem .85rem; font-size:.86rem; line-height:1.55; white-space:pre-wrap; overflow-wrap:anywhere; }
+.assistant-reply { justify-self:start; border:1px solid var(--line,rgba(255,255,255,.17)); background:var(--surface,rgba(255,255,255,.04)); }
+.assistant-user { justify-self:end; color:#111; background:var(--accent,#d5ad58); }
+.assistant-form { display:grid; grid-template-columns:1fr auto; gap:.5rem; }
+.assistant-form input { min-width:0; padding:.8rem; border:1px solid var(--line,rgba(255,255,255,.25)); color:var(--white); background:var(--surface-2); font:inherit; }
+.assistant-form button { width:44px; border:0; color:#111; background:var(--accent,#d5ad58); font-size:1.3rem; cursor:pointer; }
+.assistant-form button:disabled { opacity:.5; cursor:wait; }
+@media(max-width:600px) { .assistant-widget { right:.75rem; bottom:.75rem; } .assistant-panel { max-height:70vh; } }

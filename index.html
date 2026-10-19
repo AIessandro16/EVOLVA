@@ -1064,9 +1064,21 @@
 
 </footer>
 
+<aside class="assistant-widget" aria-label="Asistente virtual EVOLVA">
+    <button class="assistant-toggle" id="assistantToggle" type="button" aria-expanded="false" aria-controls="assistantPanel">Habla con Evol ↗</button>
+    <section class="assistant-panel" id="assistantPanel" aria-label="Chat con Evol" hidden>
+        <div class="assistant-heading"><div><span class="terminal">EVOLVA / ASISTENTE</span><h2>Hola, soy Evol.</h2></div><button type="button" id="assistantClose" aria-label="Cerrar asistente">×</button></div>
+        <p class="assistant-intro">¿No sabes qué mejorar primero? Cuéntame de tu negocio y te ayudaré a elegir un paso concreto.</p>
+        <div class="assistant-messages" id="assistantMessages" role="log" aria-live="polite"><p class="assistant-message assistant-reply">Puedo orientarte sobre marca, contenido, páginas web y los servicios de EVOLVA.</p></div>
+        <form class="assistant-form" id="assistantForm"><label class="sr-only" for="assistantInput">Tu mensaje</label><input id="assistantInput" maxlength="500" required placeholder="¿Qué necesita mi negocio?"><button type="submit" aria-label="Enviar mensaje">↑</button></form>
+        <p class="assistant-note" id="assistantStatus" role="status" aria-live="polite">Asistente de orientación con IA.</p>
+    </section>
+</aside>
+
 
 <script src="config.js"></script>
 <script src="script.js"></script>
+<script src="assistant.js"></script>
 <script src="contact.js"></script>
 
 </body>
