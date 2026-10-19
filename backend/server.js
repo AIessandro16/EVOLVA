@@ -3,11 +3,15 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { DatabaseSync } = require('node:sqlite');
 const path = require('node:path');
+const crypto = require('node:crypto');
 
 const app = express();
 const port = Number(process.env.PORT) || 3000;
 const databasePath = path.resolve(process.env.DB_PATH || 'evolva.sqlite');
 const database = new DatabaseSync(databasePath);
+const adminPassword = process.env.ADMIN_PASSWORD || '';
+const sessionSecret = process.env.SESSION_SECRET || '';
+const sessionDurationMs = 8 * 60 * 60 * 1000;
 
 database.exec('PRAGMA journal_mode = WAL');
 database.exec(`
@@ -20,6 +24,10 @@ database.exec(`
     message TEXT NOT NULL,
     consent INTEGER NOT NULL DEFAULT 0,
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
+  );
+  CREATE TABLE IF NOT EXISTS revoked_sessions (
+    id TEXT PRIMARY KEY,
+    revoked_at TEXT NOT NULL DEFAULT (datetime('now'))
   )
 `);
 
@@ -32,6 +40,53 @@ const contactLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false
 });
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 5,
+  standardHeaders: true,
+  legacyHeaders: false
+});
+
+function sign(payload) {
+  return crypto.createHmac('sha256', sessionSecret).update(payload).digest('base64url');
+}
+
+function createSession() {
+  const payload = Buffer.from(JSON.stringify({
+    id: crypto.randomBytes(16).toString('hex'),
+    expires: Date.now() + sessionDurationMs
+  })).toString('base64url');
+  return payload + '.' + sign(payload);
+}
+
+function getSession(request) {
+  if (!sessionSecret) return null;
+  const token = String(request.headers.authorization || '').match(/^Bearer\s+(.+)$/i)?.[1];
+  if (!token) return null;
+
+  const [payload, signature] = token.split('.');
+  if (!payload || !signature) return null;
+
+  const expected = Buffer.from(sign(payload));
+  const received = Buffer.from(signature);
+  if (received.length !== expected.length || !crypto.timingSafeEqual(received, expected)) return null;
+
+  try {
+    const session = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
+    if (!session.id || session.expires <= Date.now()) return null;
+    if (database.prepare('SELECT 1 FROM revoked_sessions WHERE id = ?').get(session.id)) return null;
+    return session;
+  } catch {
+    return null;
+  }
+}
+
+function requireAdmin(request, response, next) {
+  const session = getSession(request);
+  if (!session) return response.status(401).json({ error: 'Inicia sesión para continuar.' });
+  request.adminSession = session;
+  next();
+}
 
 app.disable('x-powered-by');
 app.use(helmet());
@@ -78,6 +133,30 @@ app.post('/api/contact', contactLimiter, (request, response) => {
     console.error('No se pudo guardar la consulta:', error.message);
     return response.status(500).json({ error: 'No se pudo guardar la consulta.' });
   }
+});
+
+app.post('/api/admin/login', loginLimiter, (request, response) => {
+  if (adminPassword.length < 12 || sessionSecret.length < 32) {
+    return response.status(503).json({ error: 'El acceso administrador todavía no está configurado.' });
+  }
+
+  const submittedPassword = Buffer.from(String(request.body?.password || ''));
+  const configuredPassword = Buffer.from(adminPassword);
+  const valid = submittedPassword.length === configuredPassword.length
+    && crypto.timingSafeEqual(submittedPassword, configuredPassword);
+
+  if (!valid) return response.status(401).json({ error: 'La contraseña no es correcta.' });
+  return response.json({ ok: true, token: createSession() });
+});
+
+app.get('/api/admin/session', (request, response) => {
+  response.json({ authenticated: Boolean(getSession(request)) });
+});
+
+app.post('/api/admin/logout', (request, response) => {
+  const session = getSession(request);
+  if (session) database.prepare('INSERT OR IGNORE INTO revoked_sessions (id) VALUES (?)').run(session.id);
+  return response.json({ ok: true });
 });
 
 app.get('/api/health', (_request, response) => {
