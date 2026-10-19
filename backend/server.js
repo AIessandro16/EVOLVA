@@ -159,6 +159,24 @@ app.post('/api/admin/logout', (request, response) => {
   return response.json({ ok: true });
 });
 
+app.get('/api/admin/contacts', requireAdmin, (_request, response) => {
+  const contacts = database.prepare(
+    'SELECT id, name, email, business, service, message, created_at FROM contact_requests ORDER BY created_at DESC, id DESC LIMIT 200'
+  ).all();
+  return response.json({ contacts });
+});
+
+app.delete('/api/admin/contacts/:id', requireAdmin, (request, response) => {
+  const id = Number(request.params.id);
+  if (!Number.isSafeInteger(id) || id < 1) {
+    return response.status(400).json({ error: 'La solicitud indicada no es válida.' });
+  }
+
+  const result = database.prepare('DELETE FROM contact_requests WHERE id = ?').run(id);
+  if (!result.changes) return response.status(404).json({ error: 'La solicitud ya no existe.' });
+  return response.json({ ok: true });
+});
+
 app.get('/api/health', (_request, response) => {
   response.json({ ok: true });
 });
