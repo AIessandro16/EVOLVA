@@ -997,12 +997,24 @@
 
     </h2>
 
-    <a
-        href="mailto:hola@evolva.ec"
-        class="button primary large"
-    >
-        Hablemos de tu negocio ↗
-    </a>
+    <p class="contact-lead">Cuéntanos qué quieres mejorar y te responderemos para definir el siguiente paso.</p>
+    <form id="contactForm" class="contact-form">
+        <div class="form-grid">
+            <label><span class="field-title">Tu nombre</span><input name="name" autocomplete="name" required maxlength="100" placeholder="¿Cómo te llamas?"></label>
+            <label><span class="field-title">Correo electrónico</span><input name="email" type="email" autocomplete="email" required maxlength="200" placeholder="tu@correo.com"></label>
+            <label><span class="field-title">Nombre del negocio <small class="field-optional">(opcional)</small></span><input name="business" maxlength="120" placeholder="Tu marca o emprendimiento"></label>
+            <label><span class="field-title">Servicio que te interesa</span>
+                <select name="service" id="contactService" required>
+                    <option value="">Selecciona una opción</option>
+                    <option>Revisión de tu negocio en internet</option><option>Diseño de logotipo</option><option>Imagen de marca</option><option>Diseños y textos para redes</option><option>Página web para tu negocio</option><option>Plan de ideas para tu negocio</option><option>Plan Inicio — $99/mes</option><option>Plan Crecimiento — $179/mes</option><option>Plan Presencia Plus — $249/mes</option><option>Paquete Imagen lista para publicar — $175</option><option>Paquete Tu negocio en internet — $205</option><option>Paquete Redes en marcha — $195 primer mes</option><option>Otro / necesito orientación</option>
+                </select>
+            </label>
+            <label class="form-full"><span class="field-title">Cuéntanos un poco más</span><textarea name="message" required minlength="10" maxlength="2000" rows="4" placeholder="¿Qué hace tu negocio y qué te gustaría conseguir?"></textarea></label>
+            <label class="privacy-check form-full"><input type="checkbox" name="consent" required><span>Acepto que EVOLVA use estos datos para responder a mi consulta.</span></label>
+        </div>
+        <div class="form-actions"><button class="button primary large" type="submit" id="contactSubmit">Enviar consulta ↗</button><span id="formStatus" role="status" aria-live="polite"></span></div>
+        <p class="form-note">No incluyas contraseñas ni información sensible. Tus datos se usarán para gestionar esta solicitud.</p>
+    </form>
 
 </section>
 

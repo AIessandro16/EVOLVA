@@ -2466,3 +2466,34 @@ body.light .comparison-after {
     .comparison .social-mock { height: 270px; }
 }
 
+
+.contact-lead { max-width:650px; margin:1rem 0 2rem; }
+.contact-form { max-width:850px; margin:2rem auto 0; padding:clamp(1rem,3vw,2rem); text-align:left; border:1px solid var(--line,rgba(255,255,255,.16)); background:var(--surface,rgba(255,255,255,.025)); }
+.form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.contact-form label { display:flex; flex-direction:column; gap:.45rem; font-size:.8rem; }
+.contact-form label span { opacity:.65; }
+.contact-form .field-title { display:block; min-height:1.2em; opacity:1; }
+.contact-form .field-optional { font-size:.9em; font-weight:400; opacity:.65; }
+.contact-form input:not([type=checkbox]), .contact-form select, .contact-form textarea { width:100%; min-width:0; border:1px solid var(--line,rgba(255,255,255,.22)); border-radius:0; padding:.85rem; color:var(--white); background:var(--surface-2); caret-color:var(--gold); font:inherit; color-scheme:dark; }
+body.light .contact-form input:not([type=checkbox]), body.light .contact-form select, body.light .contact-form textarea { color-scheme:light; }
+.contact-form select option { color:var(--white); background:var(--surface); }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color:var(--muted); opacity:1; }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { outline:2px solid var(--accent,#d5ad58); outline-offset:2px; }
+.form-full { grid-column:1/-1; }
+.privacy-check { flex-direction:row!important; align-items:flex-start; gap:.7rem!important; }
+.privacy-check input { margin-top:.25rem; accent-color:var(--accent,#d5ad58); }
+.form-actions { display:flex; flex-wrap:wrap; align-items:center; gap:1rem; margin-top:1.2rem; }
+#formStatus { font-size:.85rem; }
+.form-note { margin-top:1rem; font-size:.75rem; opacity:.65; }
+@media(max-width:900px) { .catalog-grid,.plans-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:620px) { .catalog-grid,.plans-grid { grid-template-columns:1fr; } .combo-item { grid-template-columns:1fr auto; gap:.5rem 1rem; } .combo-item a { grid-column:1/-1; } .form-grid { grid-template-columns:1fr; } .form-full { grid-column:auto; } .catalog-desc { min-height:0; } }
+@media(prefers-reduced-motion:reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+    .catalog-card:hover,.plan-card:hover { transform:none; }
+}
+
