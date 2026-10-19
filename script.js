@@ -183,15 +183,15 @@ function createResult() {
 
 
     let title =
-        "Tu negocio está listo para evolucionar.";
+        "Tu negocio ya tiene por dónde empezar.";
 
     let text =
-        "Tienes un punto de partida. Podemos ayudarte a organizar tu presencia digital y construir una estrategia que crezca contigo.";
+        "Podemos ayudarte a ordenar tus redes, mostrar lo que ofreces y facilitar que tus clientes te contacten.";
 
     let services = [
-        "Contenido",
-        "Community Manager",
-        "Marketing"
+        "Manejo de redes (community manager)",
+        "Diseños y textos para redes",
+        "Plan de ideas para tu negocio"
     ];
 
 
@@ -201,14 +201,15 @@ function createResult() {
     ) {
 
         title =
-            "Empieza por construir una marca reconocible.";
+            "Empecemos por la imagen de tu negocio.";
 
         text =
-            "Antes de publicar más, conviene definir cómo quieres que tu negocio se vea y se recuerde. Una identidad clara será la base para todo lo demás.";
+            "Definimos un logo, colores y estilo para que las personas reconozcan tu negocio. Después podrás usarlos en tus publicaciones y otros materiales.";
 
         services = [
-            "Branding",
-            "Contenido"
+            "Diseño de logotipo",
+            "Imagen de marca",
+            "Diseños y textos para redes"
         ];
 
     }
@@ -220,19 +221,35 @@ function createResult() {
     ) {
 
         title =
-            "Tu siguiente paso puede ser crear tu presencia digital.";
+            "A tu negocio podría ayudarle tener una página web.";
 
         text =
-            "Una página web puede convertirse en el punto central donde tus clientes conozcan tu negocio, tus servicios y sepan cómo contactarte.";
+            "Es un lugar donde las personas pueden conocer tu negocio, ver qué ofreces y encontrar cómo contactarte.";
 
         services = [
-            "Página Web",
-            "Branding",
-            "Marketing"
+            "Página web para tu negocio",
+            "Imagen de marca",
+            "Manejo de redes (community manager)"
         ];
 
     }
 
+
+    else if (presence === "none") {
+
+        title =
+            "Empecemos por construir tu presencia en internet.";
+
+        text =
+            "No necesitas tener redes ni una página para empezar. Podemos ayudarte a definir una imagen para tu negocio, preparar contenido y elegir dónde mostrar lo que ofreces.";
+
+        services = [
+            "Imagen de marca",
+            "Diseños y textos para redes",
+            "Manejo de redes (community manager)"
+        ];
+
+    }
 
     else if (
         priority === "management" ||
@@ -240,15 +257,15 @@ function createResult() {
     ) {
 
         title =
-            "Tus redes necesitan orden y constancia.";
+            "Tus redes necesitan orden y atención.";
 
         text =
-            "Ya tienes un punto de partida. Ahora podemos ayudarte a organizar el contenido, mantener tus redes activas y convertirlas en un canal útil.";
+            "Podemos planificar y publicar contenido, además de responder comentarios y mensajes dentro del horario incluido en el plan que elijas.";
 
         services = [
-            "Community Manager",
-            "Contenido",
-            "Marketing"
+            "Manejo de redes (community manager)",
+            "Diseños y textos para redes",
+            "Plan de ideas para tu negocio"
         ];
 
     }
@@ -257,15 +274,15 @@ function createResult() {
     else if (goal === "customers") {
 
         title =
-            "Hagamos que tu presencia digital trabaje por tu negocio.";
+            "Hagamos más fácil que tus clientes te encuentren.";
 
         text =
-            "Tu objetivo es atraer clientes. Para ello podemos combinar contenido, estrategia y una presencia digital que facilite que las personas te descubran y contacten.";
+            "Podemos mostrar mejor lo que ofreces en redes y en una página web, para que las personas sepan cómo contactarte.";
 
         services = [
-            "Marketing",
-            "Contenido",
-            "Página Web"
+            "Manejo de redes (community manager)",
+            "Diseños y textos para redes",
+            "Página web para tu negocio"
         ];
 
     }
@@ -281,6 +298,8 @@ function createResult() {
             .join("");
 
 }
+
+
 
 
 nextButton.addEventListener("click", () => {
