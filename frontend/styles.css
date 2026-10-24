@@ -1,7 +1,7 @@
 @property --black {
     syntax: "<color>";
     inherits: true;
-    initial-value: #080807;
+    initial-value: #000000;
 }
 @property --black-2 {
     syntax: "<color>";
