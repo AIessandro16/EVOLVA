@@ -5,7 +5,8 @@ const { DatabaseSync } = require('node:sqlite');
 const path = require('node:path');
 const crypto = require('node:crypto');
 
-const app = express();
+const app = express(); 
+app.set('trust proxy', 1);
 const port = Number(process.env.PORT) || 3000;
 const databasePath = path.resolve(process.env.DB_PATH || 'evolva.sqlite');
 const database = new DatabaseSync(databasePath);
